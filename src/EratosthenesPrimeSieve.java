@@ -5,6 +5,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
     public EratosthenesPrimeSieve(int bound) {
         this.bound = bound;
         primeNumbers = new boolean[bound+1];
+        getPrimeNumbers();
     }
 
     public void getPrimeNumbers() {
