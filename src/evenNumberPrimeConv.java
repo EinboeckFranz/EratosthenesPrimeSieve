@@ -15,18 +15,21 @@ public class evenNumberPrimeConv {
 
     public void checkIt(int bound) {
         EratosthenesPrimeSieve primeSieve = new EratosthenesPrimeSieve(bound);
+        boolean alreadyPrintedASum = false;
 
         for (int i = 4; i <= bound; i = i+2) {
             for (int primeNumber1 = 2; primeNumber1 < i; primeNumber1++) {
                 for (int primeNumber2 = 2; primeNumber1 + primeNumber2 <= i; primeNumber2++) {
                     if (primeSieve.isPrime(primeNumber1) && primeSieve.isPrime(primeNumber2)) {
-                        if (primeNumber1 + primeNumber2 == i) {
+                        if (primeNumber1 + primeNumber2 == i && !alreadyPrintedASum) {
                             System.out.println(i + " summe: " + i + " = " + primeNumber1 + " + " + primeNumber2);
+                            alreadyPrintedASum = true;
                             break;
                         }
                     }
                 }
             }
+            alreadyPrintedASum = false;
         }
     }
 }
